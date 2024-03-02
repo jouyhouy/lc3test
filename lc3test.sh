@@ -1,12 +1,12 @@
 #lc3as mp2.asm
 for filename in *; do
       {
-      if [[ "$filename" == *"."* ]]; then
+      if [[ "$filename" == *".asm" ]]; then
             lc3as $filename
       fi
       } &> /dev/null
 
-      if [[ "$filename" != *"."* ]] && [[ "$filename" != *"out" ]]; then
+      if [[ "$filename" != *"."* ]] && [[ "$filename" != *"out" ]] && [[ "$filename" != *"myresult"* ]]; then
             echo "Testing $filename"
             lc3sim -s $filename > my_out
             diff my_out ${filename}out > /dev/null 2>&1
