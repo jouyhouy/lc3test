@@ -6,7 +6,7 @@ A bash script to test LC3 code. For ECE220 only.
 Navigate to the dist folder. Make sure all your files are compiled, then simply run.
 
 ```bash
-$ ./lc3test
+$ ./lc3test.sh
 ```
 
 The script will show which test passed and which ones failed.
