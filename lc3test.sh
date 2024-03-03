@@ -1,6 +1,7 @@
+#!/bin/bash
 for filename in *; do
       if [[ "$filename" == *".asm" ]]; then
-            output=$(lc3as $filename 2>&1)
+            output=$(lc3as "$filename" 2>&1)
             # Check if the word 'fail' is in the output
             if echo "$output" | grep -q ":"; then
                   echo "$output"
@@ -15,8 +16,8 @@ done
 ifsuccess=1
 for filename in *; do
       if [[ "$filename" != *"."* ]] && [[ "$filename" != *"out" ]] && [[ "$filename" != *"myresult"* ]]; then
-            lc3sim -s $filename > my_out
-            diff my_out ${filename}out > /dev/null 2>&1
+            lc3sim -s "$filename" > my_out
+            diff my_out "${filename}"out > /dev/null 2>&1
             if [[ $? -eq 0 ]]; then
                   echo "testing $filename...passed"
             else
